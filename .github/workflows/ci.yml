@@ -16,13 +16,12 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Use Node.js ${{ matrix.node-version }}
+    - name: Use Node.js 18.x
       uses: actions/setup-node@v3
       with:
         node-version: 18.x
         cache: 'npm'
     - run: npm ci
-    - run: npm run build --if-present
     - run: npm test
 
   build-macos:
@@ -31,12 +30,11 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Use Node.js ${{ matrix.node-version }}
+    - name: Use Node.js 18.x
       uses: actions/setup-node@v3
       with:
         node-version: 18.x
     - run: npm ci
-    - run: npm run build --if-present
     - run: npm test
 
   build-windows:
@@ -45,10 +43,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Use Node.js ${{ matrix.node-version }}
+    - name: Use Node.js 18.x
       uses: actions/setup-node@v3
       with:
         node-version: 18.x
     - run: npm ci
-    - run: npm run build --if-present
     - run: npm test
